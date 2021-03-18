@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e5e1db0_894da849",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-18T21:52:10Z",
+      "side": 1,
+      "message": "Can you also explain which use-case is implemented?",
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9280c968_19d95ddc",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/CredentialsProvider.java",
         "patchSetId": 6
