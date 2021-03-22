@@ -18,23 +18,34 @@ import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
+@Singleton
 public class PubSubConfiguration {
   private static final String DEFAULT_NUMBER_OF_SUBSCRIBERS = "6";
+  private static final String DEFAULT_ACK_DEADLINE_SECONDS = "10";
+
   private final String project;
+  private final String subscriptionId;
   private final Integer numberOfSubscribers;
   private final Boolean sendAsync;
   private final String privateKeyLocation;
+  private final Integer ackDeadlineSeconds;
 
   @Inject
   public PubSubConfiguration(PluginConfigFactory configFactory, @PluginName String pluginName) {
     PluginConfig fromGerritConfig = configFactory.getFromGerritConfig(pluginName);
     this.sendAsync = fromGerritConfig.getBoolean("sendAsync", true);
     this.project = fromGerritConfig.getString("project");
+    this.subscriptionId = fromGerritConfig.getString("subscriptionId");
     this.privateKeyLocation = fromGerritConfig.getString("privateKeyLocation");
+
     this.numberOfSubscribers =
         Integer.parseInt(
             fromGerritConfig.getString("numberOfSubscribers", DEFAULT_NUMBER_OF_SUBSCRIBERS));
+    this.ackDeadlineSeconds =
+        Integer.parseInt(
+            fromGerritConfig.getString("ackDeadlineSeconds", DEFAULT_ACK_DEADLINE_SECONDS));
   }
 
   public Boolean isSendAsync() {
@@ -51,5 +62,13 @@ public class PubSubConfiguration {
 
   public String getPrivateKeyLocation() {
     return privateKeyLocation;
+  }
+
+  public String getSubscriptionId() {
+    return subscriptionId;
+  }
+
+  public Integer getAckDeadlineSeconds() {
+    return ackDeadlineSeconds;
   }
 }

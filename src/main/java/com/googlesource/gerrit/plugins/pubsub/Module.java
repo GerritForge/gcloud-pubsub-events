@@ -15,20 +15,28 @@
 package com.googlesource.gerrit.plugins.pubsub;
 
 import com.gerritforge.gerrit.eventbroker.EventGsonProvider;
+import com.google.api.gax.core.CredentialsProvider;
 import com.google.gerrit.extensions.config.FactoryModule;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
+import com.google.inject.Scopes;
 import com.google.inject.Singleton;
+import com.googlesource.gerrit.plugins.pubsub.local.EnvironmentChecker;
+import com.googlesource.gerrit.plugins.pubsub.local.LocalCredentialsProvider;
+import com.googlesource.gerrit.plugins.pubsub.local.LocalPublisherProvider;
+import com.googlesource.gerrit.plugins.pubsub.local.LocalSubscriberProvider;
 
 class Module extends FactoryModule {
 
   private PubSubApiModule pubSubApiModule;
+  private EnvironmentChecker environmentChecker;
 
   @Inject
-  public Module(PubSubApiModule pubSubApiModule) {
+  public Module(PubSubApiModule pubSubApiModule, EnvironmentChecker environmentChecker) {
     this.pubSubApiModule = pubSubApiModule;
+    this.environmentChecker = environmentChecker;
   }
 
   @Override
@@ -37,9 +45,20 @@ class Module extends FactoryModule {
     DynamicSet.bind(binder(), LifecycleListener.class).to(Manager.class);
     factory(PubSubPublisher.Factory.class);
     factory(PubSubEventSubscriber.Factory.class);
-    bind(SubscriberProvider.class);
-    bind(PublisherProvider.class);
 
+    if (environmentChecker.isLocalEnvironment()) {
+      bind(CredentialsProvider.class)
+          .toProvider(LocalCredentialsProvider.class)
+          .in(Scopes.SINGLETON);
+      bind(SubscriberProvider.class).to(LocalSubscriberProvider.class);
+      bind(PublisherProvider.class).to(LocalPublisherProvider.class);
+    } else {
+      bind(CredentialsProvider.class)
+          .toProvider(ServiceAccountCredentialsProvider.class)
+          .in(Scopes.SINGLETON);
+      bind(SubscriberProvider.class);
+      bind(PublisherProvider.class);
+    }
     install(pubSubApiModule);
   }
 }
