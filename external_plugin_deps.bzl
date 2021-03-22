@@ -122,6 +122,12 @@ def external_plugin_deps():
     )
 
     maven_jar(
+        name = "google-http-client-gson",
+        artifact = "com.google.http-client:google-http-client-gson:1.39.0",
+        sha1 = "24ec436b2b4a27c17ccfa83a9c885a1f582e29b8",
+    )
+
+    maven_jar(
         name = "grpc-context",
         artifact = "io.grpc:grpc-context:1.36.0",
         sha1 = "8d8c6e0f00ae7889f4a435c4ec0c4ad4cb99578d",
@@ -137,4 +143,22 @@ def external_plugin_deps():
         name = "perfmark-api",
         artifact = "io.perfmark:perfmark-api:0.23.0",
         sha1 = "0b813b7539fae6550541da8caafd6add86d4e22f",
+    )
+
+    maven_jar(
+        name = "opencensus-api",
+        artifact = "io.opencensus:opencensus-api:0.28.0",
+        sha1 = "0fc0d06a9d975a38c581dff59b99cf31db78bd99",
+    )
+
+    maven_jar(
+        name = "opencensus-contrib-http-util",
+        artifact = "io.opencensus:opencensus-contrib-http-util:0.28.0",
+        sha1 = "f6cb276330197d51dd65327fc305a3df7e622705",
+    )
+
+    maven_jar(
+        name = "grpc-auth",
+        artifact = "io.grpc:grpc-auth:1.36.0",
+        sha1 = "d9722016658f8e649111c8bb93b299ea38dc207e",
     )
