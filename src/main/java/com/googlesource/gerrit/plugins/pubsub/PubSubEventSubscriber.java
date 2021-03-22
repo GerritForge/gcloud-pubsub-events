@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import com.google.pubsub.v1.PubsubMessage;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.function.Consumer;
@@ -62,13 +63,15 @@ public class PubSubEventSubscriber {
           consumer.ack();
         };
 
-    subscriber = subscriberProvider.get(topic, receiver);
     try {
+      subscriber = subscriberProvider.get(topic, receiver);
       // Start the subscriber.
       // TODO: Read timeout from config
       subscriber.startAsync().awaitRunning(60000, TimeUnit.SECONDS);
     } catch (TimeoutException e) {
       logger.atSevere().withCause(e).log("Timeout during subscribing to the topic %s", topic);
+    } catch (IOException e) {
+      logger.atSevere().withCause(e).log("Exception during subscribing to the topic %s", topic);
     }
   }
 

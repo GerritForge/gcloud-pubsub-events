@@ -14,7 +14,8 @@
 
 package com.googlesource.gerrit.plugins.pubsub;
 
-import com.google.auth.Credentials;
+import com.google.api.gax.core.CredentialsProvider;
+import com.google.api.gax.core.FixedCredentialsProvider;
 import com.google.auth.oauth2.ServiceAccountCredentials;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -22,19 +23,20 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-class CredentialsProvider implements Provider<Credentials> {
-  private Credentials credentials;
+public class ServiceAccountCredentialsProvider implements Provider<CredentialsProvider> {
+  private CredentialsProvider credentials;
 
   @Inject
-  public CredentialsProvider(PubSubConfiguration pubSubProperties)
+  public ServiceAccountCredentialsProvider(PubSubConfiguration pubSubProperties)
       throws FileNotFoundException, IOException {
     this.credentials =
-        ServiceAccountCredentials.fromStream(
-            new FileInputStream(pubSubProperties.getPrivateKeyLocation()));
+        FixedCredentialsProvider.create(
+            ServiceAccountCredentials.fromStream(
+                new FileInputStream(pubSubProperties.getPrivateKeyLocation())));
   }
 
   @Override
-  public Credentials get() {
+  public CredentialsProvider get() {
     return credentials;
   }
 }
