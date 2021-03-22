@@ -18,6 +18,41 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "045cc67e_e10dc33a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e5e1db0_894da849",
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73b5e64d_de2736c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "In followup change I will add e2e tests for subscriber + local setup for gcloud pubsub. Plus I want to test that ScheduledExecutorServiceProvider is a singleton. Until that I will give -1 for verification",
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9280c968_19d95ddc",
@@ -31,6 +66,30 @@
       "writtenOn": "2021-03-18T15:15:38Z",
       "side": 1,
       "message": "Do we need this to be public?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3dcd693_004297ef",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/CredentialsProvider.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9280c968_19d95ddc",
       "range": {
         "startLine": 25,
         "startChar": 0,
@@ -58,6 +117,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "144c82fd_fe05f217",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/Module.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d054bd06_6ab6a300",
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4b905ae_77a40e69",
@@ -71,6 +148,30 @@
       "writtenOn": "2021-03-18T15:15:38Z",
       "side": 1,
       "message": "Can you comment on why this is an optional injection?",
+      "range": {
+        "startLine": 41,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 25
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "574a92c2_42bb98e9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubApiModule.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4b905ae_77a40e69",
       "range": {
         "startLine": 41,
         "startChar": 10,
@@ -104,6 +205,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf4152e5_c0e26bc6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubApiModule.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6b86fd2_539324a5",
+      "range": {
+        "startLine": 52,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 94
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa1710b3_20aba9e2",
@@ -127,6 +252,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3aad5f35_4d2aef50",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApi.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa1710b3_20aba9e2",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 6
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5fac583_a1f4c43e",
@@ -140,6 +289,30 @@
       "writtenOn": "2021-03-18T15:15:38Z",
       "side": 1,
       "message": "Why not using a thread-safe collection here? \n\nExample:\n\n  Collections.newSetFromMap(new ConcurrentHashMap\u003c\u003e())",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 49
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d594f3d_2f96c323",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApi.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5fac583_a1f4c43e",
       "range": {
         "startLine": 33,
         "startChar": 10,
@@ -196,6 +369,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9158e8e2_0bdad411",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApi.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99b04e74_3e8ec599",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 30
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f74e2eb8_84ad7505",
@@ -221,6 +418,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "634c62f9_58885b71",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApi.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "This change is getting big I wanted to do the proper exception handling with logging as a followup",
+      "parentUuid": "f74e2eb8_84ad7505",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 36
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8b2d565_df9f9b8e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApi.java",
         "patchSetId": 6
@@ -232,6 +453,30 @@
       "writtenOn": "2021-03-18T15:15:38Z",
       "side": 1,
       "message": "Maybe throw an exception in the meantime?",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 21
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4694805_ab579b5f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApi.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8b2d565_df9f9b8e",
       "range": {
         "startLine": 86,
         "startChar": 4,
@@ -267,6 +512,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf506280_652eb0d8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubEventSubscriber.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "same as above I wanted to do a followup change",
+      "parentUuid": "e157f89b_6557ae59",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "04aac44d_38f241c2",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PublisherProvider.java",
         "patchSetId": 6
@@ -278,6 +547,30 @@
       "writtenOn": "2021-03-18T15:15:38Z",
       "side": 1,
       "message": "Does this need to be public?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22183125_a029d721",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PublisherProvider.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04aac44d_38f241c2",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -313,6 +606,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0c44f4e_a4b30041",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PublisherProvider.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Yes I was thinking about that, but I believe we can use Guice factory pattern when we have code which is manage by Guice. Here we are building the publisher from google-cloud-pubsub library so we cannot use pure Guice Factory. I didn\u0027t name it as PublisherFactory to not be confused with Guice Factory. Should I rename it? WDYT?",
+      "parentUuid": "670e7be2_ce44c209",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 36
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a87977a0_d50f180f",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
         "patchSetId": 6
@@ -324,6 +641,30 @@
       "writtenOn": "2021-03-18T15:15:38Z",
       "side": 1,
       "message": "This is testing the wrong thing: we would like to check that the GCloud PubSub works, not that Gson works. We don\u0027t want this test to break for the wrong reason.\n\nWhat about injecting a Gson object and just doing:\n      String expectedMessageJson \u003d gson.toJson(eventMessage);",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 42
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "443104bc_2089bb54",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Sure I can change it but actually I wanted to avoid testing the gson parser 😊",
+      "parentUuid": "a87977a0_d50f180f",
       "range": {
         "startLine": 109,
         "startChar": 0,
@@ -347,6 +688,30 @@
       "writtenOn": "2021-03-18T15:15:38Z",
       "side": 1,
       "message": "This is reading only 1 message (see L134): should be called \u0027readMessageAndValidate\u0027?",
+      "range": {
+        "startLine": 125,
+        "startChar": 15,
+        "endLine": 125,
+        "endChar": 37
+      },
+      "revId": "783d7af1b9d9d446eec8f22e736427ea200d901a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b3b6cef_a3e2ad0c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-22T08:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f93af853_f0aeb6a6",
       "range": {
         "startLine": 125,
         "startChar": 15,
