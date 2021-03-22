@@ -12,25 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.googlesource.gerrit.plugins.pubsub;
+package com.googlesource.gerrit.plugins.pubsub.local;
 
 import com.google.api.gax.core.CredentialsProvider;
-import com.google.cloud.pubsub.v1.Publisher;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import java.io.IOException;
+import com.google.api.gax.core.FixedCredentialsProvider;
+import com.google.api.gax.core.NoCredentialsProvider;
+import com.google.inject.Provider;
 
-@Singleton
-public class PublisherProvider {
+public class LocalCredentialsProvider implements Provider<CredentialsProvider> {
 
-  protected CredentialsProvider credentials;
+  CredentialsProvider credentials;
 
-  @Inject
-  public PublisherProvider(CredentialsProvider credentials) {
-    this.credentials = credentials;
+  public LocalCredentialsProvider() {
+    this.credentials =
+        FixedCredentialsProvider.create(NoCredentialsProvider.create().getCredentials());
   }
 
-  public Publisher get(String topic) throws IOException {
-    return Publisher.newBuilder(topic).setCredentialsProvider(credentials).build();
+  @Override
+  public CredentialsProvider get() {
+    return credentials;
   }
 }
