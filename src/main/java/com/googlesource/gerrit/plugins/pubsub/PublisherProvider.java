@@ -14,25 +14,28 @@
 
 package com.googlesource.gerrit.plugins.pubsub;
 
-import com.google.api.gax.core.FixedCredentialsProvider;
+import com.google.api.gax.core.CredentialsProvider;
 import com.google.cloud.pubsub.v1.Publisher;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.pubsub.v1.TopicName;
 import java.io.IOException;
 
 @Singleton
-class PublisherProvider {
+public class PublisherProvider {
 
-  private CredentialsProvider credentialsProvider;
+  protected CredentialsProvider credentials;
+  protected PubSubConfiguration config;
 
   @Inject
-  public PublisherProvider(CredentialsProvider credentialsProvider) {
-    this.credentialsProvider = credentialsProvider;
+  public PublisherProvider(CredentialsProvider credentials, PubSubConfiguration config) {
+    this.credentials = credentials;
+    this.config = config;
   }
 
   public Publisher get(String topic) throws IOException {
-    return Publisher.newBuilder(topic)
-        .setCredentialsProvider(FixedCredentialsProvider.create(credentialsProvider.get()))
+    return Publisher.newBuilder(TopicName.of(config.getProject(), topic))
+        .setCredentialsProvider(credentials)
         .build();
   }
 }
