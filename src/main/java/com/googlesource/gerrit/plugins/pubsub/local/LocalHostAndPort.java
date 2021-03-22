@@ -12,25 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.googlesource.gerrit.plugins.pubsub;
+package com.googlesource.gerrit.plugins.pubsub.local;
 
-import com.google.api.gax.core.CredentialsProvider;
-import com.google.cloud.pubsub.v1.Publisher;
-import com.google.inject.Inject;
+import com.google.common.base.MoreObjects;
 import com.google.inject.Singleton;
-import java.io.IOException;
+import java.util.Optional;
 
 @Singleton
-public class PublisherProvider {
+public class LocalHostAndPort {
+  public static final String LOCAL_PUBSUB_HOST_PORT = "PUBSUB_EMULATOR_HOST";
 
-  protected CredentialsProvider credentials;
+  Optional<String> hostPort;
 
-  @Inject
-  public PublisherProvider(CredentialsProvider credentials) {
-    this.credentials = credentials;
+  public LocalHostAndPort() {
+    this.hostPort =
+        Optional.ofNullable(
+            MoreObjects.firstNonNull(
+                System.getenv(LOCAL_PUBSUB_HOST_PORT), System.getProperty(LOCAL_PUBSUB_HOST_PORT)));
   }
 
-  public Publisher get(String topic) throws IOException {
-    return Publisher.newBuilder(topic).setCredentialsProvider(credentials).build();
+  public Optional<String> getLocalHostAndPort() {
+    return hostPort;
+  }
+
+  public Boolean isLocalEnvironment() {
+    return getLocalHostAndPort().isPresent();
   }
 }
