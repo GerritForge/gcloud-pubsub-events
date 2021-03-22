@@ -17,6 +17,7 @@ package com.googlesource.gerrit.plugins.pubsub;
 import com.gerritforge.gerrit.eventbroker.EventMessage;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.pubsub.v1.Publisher;
+import com.google.common.flogger.FluentLogger;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
@@ -28,6 +29,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 public class PubSubPublisher {
+  private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
   public interface Factory {
     public PubSubPublisher create(String topic);
@@ -71,8 +73,7 @@ public class PubSubPublisher {
       messageIdFuture.get(1000, TimeUnit.SECONDS);
 
     } catch (InterruptedException | ExecutionException | TimeoutException e) {
-      // TODO: Handle exception
-      e.printStackTrace();
+      logger.atSevere().withCause(e).log("Cannot send the message");
     }
   }
 
