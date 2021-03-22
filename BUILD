@@ -23,7 +23,7 @@ gerrit_plugin(
         "@google-auth-library-credentials//jar",
         "@google-auth-library-oauth2-http//jar",
         "@gax//jar",
-        "@events-broker//jar:neverlink",
+        "@events-broker//jar",
     ],
 )
 

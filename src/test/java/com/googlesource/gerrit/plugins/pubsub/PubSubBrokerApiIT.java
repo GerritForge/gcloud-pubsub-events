@@ -19,11 +19,14 @@ import static com.google.common.truth.Truth.assertThat;
 import com.gerritforge.gerrit.eventbroker.BrokerApi;
 import com.gerritforge.gerrit.eventbroker.EventGsonProvider;
 import com.gerritforge.gerrit.eventbroker.EventMessage;
+import com.google.api.gax.core.FixedExecutorProvider;
 import com.google.api.gax.core.NoCredentialsProvider;
 import com.google.api.gax.grpc.GrpcTransportChannel;
 import com.google.api.gax.rpc.FixedTransportChannelProvider;
 import com.google.api.gax.rpc.TransportChannelProvider;
+import com.google.cloud.pubsub.v1.MessageReceiver;
 import com.google.cloud.pubsub.v1.Publisher;
+import com.google.cloud.pubsub.v1.Subscriber;
 import com.google.cloud.pubsub.v1.SubscriptionAdminClient;
 import com.google.cloud.pubsub.v1.SubscriptionAdminSettings;
 import com.google.cloud.pubsub.v1.TopicAdminClient;
@@ -34,6 +37,7 @@ import com.google.cloud.pubsub.v1.stub.SubscriberStubSettings;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.NoHttpd;
 import com.google.gerrit.acceptance.TestPlugin;
+import com.google.gerrit.acceptance.WaitUtil;
 import com.google.gerrit.extensions.config.FactoryModule;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.gerrit.extensions.registration.DynamicSet;
@@ -50,8 +54,11 @@ import com.google.pubsub.v1.TopicName;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.UUID;
+import java.util.concurrent.Executors;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 import org.junit.Test;
 import org.testcontainers.containers.PubSubEmulatorContainer;
 import org.testcontainers.utility.DockerImageName;
@@ -64,6 +71,8 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
   private static final String PROJECT_ID = "test_project";
   private static final String TOPIC_ID = "test_topic";
   private static final String SUBSCRIPTION_ID = "test_subscription_id";
+
+  private static final Duration TEST_TIMEOUT = Duration.ofSeconds(5);
 
   @Inject private Gson gson;
 
@@ -120,6 +129,28 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
         });
   }
 
+  @Test
+  public void shouldConsumeEvent() throws InterruptedException {
+    UUID id = UUID.randomUUID();
+    Event event = new ProjectCreatedEvent();
+    EventMessage eventMessage = new EventMessage(new EventMessage.Header(id, id), event);
+    String expectedMessageJson = gson.toJson(eventMessage);
+    TestConsumer consumer = new TestConsumer();
+
+    objectUnderTest.receiveAsync(TOPIC_ID, consumer);
+
+    objectUnderTest.send(TOPIC_ID, eventMessage);
+
+    waitUntil(
+        () ->
+            consumer.getMessage() != null
+                && expectedMessageJson.equals(gson.toJson(consumer.getMessage())));
+  }
+
+  private void waitUntil(Supplier<Boolean> waitCondition) throws InterruptedException {
+    WaitUtil.waitUntil(waitCondition, TEST_TIMEOUT);
+  }
+
   private void readMessageAndValidate(Consumer<PullResponse> validate) throws IOException {
     SubscriberStubSettings subscriberStubSettings =
         SubscriberStubSettings.newBuilder()
@@ -169,8 +200,26 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
         SubscriptionAdminClient.create(subscriptionAdminSettings);
     ProjectSubscriptionName subscriptionName =
         ProjectSubscriptionName.of(PROJECT_ID, subscriptionId);
-    subscriptionAdminClient.createSubscription(
-        subscriptionName, TopicName.of(PROJECT_ID, topicId), PushConfig.getDefaultInstance(), 10);
+    subscriptionAdminClient
+        .createSubscription(
+            subscriptionName,
+            TopicName.of(PROJECT_ID, topicId),
+            PushConfig.getDefaultInstance(),
+            10)
+        .getName();
+  }
+
+  private class TestConsumer implements Consumer<EventMessage> {
+    private EventMessage msg;
+
+    @Override
+    public void accept(EventMessage msg) {
+      this.msg = msg;
+    }
+
+    public EventMessage getMessage() {
+      return msg;
+    }
   }
 
   @SuppressWarnings("unused")
@@ -189,6 +238,7 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
       factory(PubSubPublisher.Factory.class);
       factory(PubSubEventSubscriber.Factory.class);
       bind(PublisherProvider.class).to(TestPublisherProvider.class);
+      bind(SubscriberProvider.class).to(TestSubscriberProvider.class);
 
       install(pubSubApiModule);
     }
@@ -208,6 +258,28 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
           FixedTransportChannelProvider.create(GrpcTransportChannel.create(channel));
       return Publisher.newBuilder(TopicName.of(PROJECT_ID, topic))
           .setChannelProvider(channelProvider)
+          .setCredentialsProvider(NoCredentialsProvider.create())
+          .build();
+    }
+  }
+
+  private static class TestSubscriberProvider extends SubscriberProvider {
+    @Inject
+    public TestSubscriberProvider() {
+      super(null, null, null);
+    }
+
+    @Override
+    public Subscriber get(String topic, MessageReceiver receiver) {
+      ManagedChannel channel = ManagedChannelBuilder.forTarget(hostport).usePlaintext().build();
+      TransportChannelProvider channelProvider =
+          FixedTransportChannelProvider.create(GrpcTransportChannel.create(channel));
+
+      return Subscriber.newBuilder(
+              ProjectSubscriptionName.of(PROJECT_ID, SUBSCRIPTION_ID), receiver)
+          .setChannelProvider(channelProvider)
+          .setExecutorProvider(
+              FixedExecutorProvider.create(Executors.newSingleThreadScheduledExecutor()))
           .setCredentialsProvider(NoCredentialsProvider.create())
           .build();
     }
