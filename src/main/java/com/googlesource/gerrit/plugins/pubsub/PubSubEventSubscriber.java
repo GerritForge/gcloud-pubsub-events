@@ -40,22 +40,24 @@ public class PubSubEventSubscriber {
   private final String topic;
   private final Consumer<EventMessage> messageProcessor;
   private final SubscriberProvider subscriberProvider;
+  private final PubSubConfiguration config;
   private Subscriber subscriber;
 
   @Inject
   public PubSubEventSubscriber(
       Gson gson,
       SubscriberProvider subscriberProvider,
+      PubSubConfiguration config,
       @Assisted String topic,
       @Assisted Consumer<EventMessage> messageProcessor) {
     this.gson = gson;
     this.topic = topic;
     this.messageProcessor = messageProcessor;
     this.subscriberProvider = subscriberProvider;
+    this.config = config;
   }
 
   public void subscribe() {
-
     MessageReceiver receiver =
         (PubsubMessage message, AckReplyConsumer consumer) -> {
           EventMessage event = gson.fromJson(message.getData().toStringUtf8(), EventMessage.class);
@@ -81,6 +83,10 @@ public class PubSubEventSubscriber {
 
   public Consumer<EventMessage> getMessageProcessor() {
     return messageProcessor;
+  }
+
+  public void replayMessages() {
+    subscriberProvider.replayMessages(subscriber.getSubscriptionNameString());
   }
 
   public void shutdown() {

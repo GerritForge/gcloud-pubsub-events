@@ -51,33 +51,40 @@ public class LocalSubscriberProvider extends SubscriberProvider {
 
   @Override
   public Subscriber get(String topic, MessageReceiver receiver) throws IOException {
-    ManagedChannel channel =
-        ManagedChannelBuilder.forTarget(environmentChecker.getLocalHostAndPort().get())
-            .usePlaintext()
-            .build();
-    createTopic(channel, pubSubProperties.getProject(), topic);
-    TransportChannelProvider channelProvider =
-        FixedTransportChannelProvider.create(GrpcTransportChannel.create(channel));
-    SubscriptionAdminSettings subscriptionAdminSettings =
-        SubscriptionAdminSettings.newBuilder()
-            .setTransportChannelProvider(channelProvider)
-            .setCredentialsProvider(credentials)
-            .build();
-    return Subscriber.newBuilder(
-            getOrCreateSubscription(topic, subscriptionAdminSettings).getName(), receiver)
+    TransportChannelProvider channelProvider = createChannelProvider();
+    createTopic(channelProvider, pubSubProperties.getProject(), topic);
+    return Subscriber.newBuilder(getOrCreateSubscription(topic).getName(), receiver)
         .setChannelProvider(channelProvider)
         .setExecutorProvider(FixedExecutorProvider.create(executor))
         .setCredentialsProvider(credentials)
         .build();
   }
 
-  private static void createTopic(ManagedChannel channel, String project, String topicId)
-      throws IOException {
+  @Override
+  protected SubscriptionAdminSettings createSubscriptionAdminSettings() throws IOException {
+    TransportChannelProvider channelProvider = createChannelProvider();
+    return SubscriptionAdminSettings.newBuilder()
+        .setTransportChannelProvider(channelProvider)
+        .setCredentialsProvider(credentials)
+        .build();
+  }
+
+  private TransportChannelProvider createChannelProvider() {
+    ManagedChannel channel =
+        ManagedChannelBuilder.forTarget(environmentChecker.getLocalHostAndPort().get())
+            .usePlaintext()
+            .build();
+    TransportChannelProvider channelProvider =
+        FixedTransportChannelProvider.create(GrpcTransportChannel.create(channel));
+    return channelProvider;
+  }
+
+  private static void createTopic(
+      TransportChannelProvider channelProvider, String project, String topicId) throws IOException {
 
     TopicAdminSettings topicAdminSettings =
         TopicAdminSettings.newBuilder()
-            .setTransportChannelProvider(
-                FixedTransportChannelProvider.create(GrpcTransportChannel.create(channel)))
+            .setTransportChannelProvider(channelProvider)
             .setCredentialsProvider(NoCredentialsProvider.create())
             .build();
     try (TopicAdminClient topicAdminClient = TopicAdminClient.create(topicAdminSettings)) {
