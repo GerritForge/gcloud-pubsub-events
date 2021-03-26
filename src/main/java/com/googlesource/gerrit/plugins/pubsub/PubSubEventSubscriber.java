@@ -40,22 +40,24 @@ public class PubSubEventSubscriber {
   private final String topic;
   private final Consumer<EventMessage> messageProcessor;
   private final SubscriberProvider subscriberProvider;
+  private final PubSubConfiguration config;
   private Subscriber subscriber;
 
   @Inject
   public PubSubEventSubscriber(
       Gson gson,
       SubscriberProvider subscriberProvider,
+      PubSubConfiguration config,
       @Assisted String topic,
       @Assisted Consumer<EventMessage> messageProcessor) {
     this.gson = gson;
     this.topic = topic;
     this.messageProcessor = messageProcessor;
     this.subscriberProvider = subscriberProvider;
+    this.config = config;
   }
 
   public void subscribe() {
-
     MessageReceiver receiver =
         (PubsubMessage message, AckReplyConsumer consumer) -> {
           EventMessage event = gson.fromJson(message.getData().toStringUtf8(), EventMessage.class);
@@ -65,9 +67,9 @@ public class PubSubEventSubscriber {
 
     try {
       subscriber = subscriberProvider.get(topic, receiver);
-      // Start the subscriber.
-      // TODO: Read timeout from config
-      subscriber.startAsync().awaitRunning(60000, TimeUnit.SECONDS);
+      subscriber
+          .startAsync()
+          .awaitRunning(config.getSubscribtionTimeoutInSeconds(), TimeUnit.SECONDS);
     } catch (TimeoutException e) {
       logger.atSevere().withCause(e).log("Timeout during subscribing to the topic %s", topic);
     } catch (IOException e) {
@@ -83,10 +85,15 @@ public class PubSubEventSubscriber {
     return messageProcessor;
   }
 
+  public void replayMessages() {
+    subscriberProvider.replayMessages(subscriber.getSubscriptionNameString());
+  }
+
   public void shutdown() {
     try {
-      // TODO: Read timeout from config
-      subscriber.stopAsync().awaitTerminated(60000, TimeUnit.SECONDS);
+      subscriber
+          .stopAsync()
+          .awaitTerminated(config.getShutdownTimeoutInSeconds(), TimeUnit.SECONDS);
     } catch (TimeoutException e) {
       logger.atSevere().withCause(e).log("Timeout during subscriber shutdown");
     }
