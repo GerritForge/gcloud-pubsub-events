@@ -81,6 +81,11 @@ class PubSubBrokerApi implements BrokerApi {
 
   @Override
   public void replayAllEvents(String topic) {
-    throw new UnsupportedOperationException();
+    subscribers.stream()
+        .filter(subscriber -> topic.equals(subscriber.getTopic()))
+        .forEach(
+            subscriber -> {
+              subscriber.replayMessages();
+            });
   }
 }

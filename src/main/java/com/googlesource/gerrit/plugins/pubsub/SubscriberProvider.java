@@ -21,16 +21,25 @@ import com.google.cloud.pubsub.v1.MessageReceiver;
 import com.google.cloud.pubsub.v1.Subscriber;
 import com.google.cloud.pubsub.v1.SubscriptionAdminClient;
 import com.google.cloud.pubsub.v1.SubscriptionAdminSettings;
+import com.google.common.flogger.FluentLogger;
 import com.google.inject.Inject;
+import com.google.protobuf.Duration;
+import com.google.protobuf.Timestamp;
+import com.google.pubsub.v1.GetSubscriptionRequest;
 import com.google.pubsub.v1.ProjectSubscriptionName;
-import com.google.pubsub.v1.PushConfig;
+import com.google.pubsub.v1.SeekRequest;
 import com.google.pubsub.v1.Subscription;
 import com.google.pubsub.v1.TopicName;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Optional;
 import java.util.concurrent.ScheduledExecutorService;
 
 public class SubscriberProvider {
+
+  private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+
   protected CredentialsProvider credentials;
   protected PubSubConfiguration pubSubProperties;
   protected ScheduledExecutorService executor;
@@ -46,31 +55,42 @@ public class SubscriberProvider {
   }
 
   public Subscriber get(String topic, MessageReceiver receiver) throws IOException {
-    SubscriptionAdminSettings subscriptionAdminSettings =
-        SubscriptionAdminSettings.newBuilder().setCredentialsProvider(credentials).build();
-    return Subscriber.newBuilder(
-            getOrCreateSubscription(topic, subscriptionAdminSettings).getName(), receiver)
+    return Subscriber.newBuilder(getOrCreateSubscription(topic).getName(), receiver)
         .setExecutorProvider(FixedExecutorProvider.create(executor))
         .setCredentialsProvider(credentials)
         .build();
   }
 
-  protected Subscription getOrCreateSubscription(
-      String topicId, SubscriptionAdminSettings subscriptionAdminSettings) throws IOException {
-    SubscriptionAdminClient subscriptionAdminClient =
-        SubscriptionAdminClient.create(subscriptionAdminSettings);
-    String subscriptionName = String.format("%s-%s", pubSubProperties.getSubscriptionId(), topicId);
-    ProjectSubscriptionName projectSubscriptionName =
-        ProjectSubscriptionName.of(pubSubProperties.getProject(), subscriptionName);
+  protected SubscriptionAdminSettings createSubscriptionAdminSettings() throws IOException {
+    SubscriptionAdminSettings subscriptionAdminSettings =
+        SubscriptionAdminSettings.newBuilder().setCredentialsProvider(credentials).build();
+    return subscriptionAdminSettings;
+  }
 
-    return getSubscription(subscriptionAdminClient, projectSubscriptionName)
-        .orElseGet(
-            () ->
-                subscriptionAdminClient.createSubscription(
-                    projectSubscriptionName,
-                    TopicName.of(pubSubProperties.getProject(), topicId),
-                    PushConfig.getDefaultInstance(),
-                    10));
+  protected Subscription getOrCreateSubscription(String topicId) throws IOException {
+    try (SubscriptionAdminClient subscriptionAdminClient =
+        SubscriptionAdminClient.create(createSubscriptionAdminSettings())) {
+      String subscriptionName =
+          String.format("%s-%s", pubSubProperties.getSubscriptionId(), topicId);
+      ProjectSubscriptionName projectSubscriptionName =
+          ProjectSubscriptionName.of(pubSubProperties.getProject(), subscriptionName);
+
+      return getSubscription(subscriptionAdminClient, projectSubscriptionName)
+          .orElseGet(
+              () ->
+                  subscriptionAdminClient.createSubscription(
+                      createSubscriptionRequest(projectSubscriptionName, topicId)));
+    }
+  }
+
+  protected Subscription createSubscriptionRequest(
+      ProjectSubscriptionName projectSubscriptionName, String topicId) {
+    return Subscription.newBuilder()
+        .setName(projectSubscriptionName.toString())
+        .setTopic(TopicName.of(pubSubProperties.getProject(), topicId).toString())
+        .setAckDeadlineSeconds(10)
+        .setRetainAckedMessages(true)
+        .build();
   }
 
   protected Optional<Subscription> getSubscription(
@@ -82,6 +102,32 @@ public class SubscriberProvider {
       return Optional.of(subscriptionAdminClient.getSubscription(projectSubscriptionName));
     } catch (NotFoundException e) {
       return Optional.empty();
+    }
+  }
+
+  public void replayMessages(String subscriptionName) {
+    try (SubscriptionAdminClient subscriptionAdminClient =
+        SubscriptionAdminClient.create(createSubscriptionAdminSettings())) {
+      Duration messageRetentionDuration =
+          subscriptionAdminClient
+              .getSubscription(
+                  GetSubscriptionRequest.newBuilder().setSubscription(subscriptionName).build())
+              .getMessageRetentionDuration();
+      LocalDateTime retentionTime =
+          LocalDateTime.now().minusSeconds(messageRetentionDuration.getSeconds());
+      Timestamp retentionTimeEpoch =
+          Timestamp.newBuilder()
+              .setSeconds(retentionTime.atZone(ZoneOffset.UTC).toEpochSecond())
+              .build();
+
+      SeekRequest request =
+          SeekRequest.newBuilder()
+              .setSubscription(subscriptionName)
+              .setTime(retentionTimeEpoch)
+              .build();
+      subscriptionAdminClient.seek(request);
+    } catch (IOException e) {
+      logger.atSevere().withCause(e).log("Cannot replay messages");
     }
   }
 }
