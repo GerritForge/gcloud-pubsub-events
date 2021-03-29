@@ -24,6 +24,8 @@ import com.google.inject.Singleton;
 public class PubSubConfiguration {
   private static final String DEFAULT_NUMBER_OF_SUBSCRIBERS = "6";
   private static final String DEFAULT_ACK_DEADLINE_SECONDS = "10";
+  private static final String DEFAULT_SUBSCTIPRION_TIMEOUT = "10";
+  private static final String DEFAULT_SHUTDOWN_TIMEOUT = "10";
 
   private final String project;
   private final String subscriptionId;
@@ -31,6 +33,8 @@ public class PubSubConfiguration {
   private final Boolean sendAsync;
   private final String privateKeyLocation;
   private final Integer ackDeadlineSeconds;
+  private final Long subscribtionTimeoutInSeconds;
+  private final Long shutdownTimeoutInSeconds;
 
   @Inject
   public PubSubConfiguration(PluginConfigFactory configFactory, @PluginName String pluginName) {
@@ -45,6 +49,11 @@ public class PubSubConfiguration {
     this.ackDeadlineSeconds =
         Integer.parseInt(
             fromGerritConfig.getString("ackDeadlineSeconds", DEFAULT_ACK_DEADLINE_SECONDS));
+    this.subscribtionTimeoutInSeconds =
+        Long.parseLong(
+            fromGerritConfig.getString("subscribtionTimeout", DEFAULT_SUBSCTIPRION_TIMEOUT));
+    this.shutdownTimeoutInSeconds =
+        Long.parseLong(fromGerritConfig.getString("shutdownTimeout", DEFAULT_SHUTDOWN_TIMEOUT));
   }
 
   public Boolean isSendAsync() {
@@ -69,5 +78,13 @@ public class PubSubConfiguration {
 
   public Integer getAckDeadlineSeconds() {
     return ackDeadlineSeconds;
+  }
+
+  public Long getSubscribtionTimeoutInSeconds() {
+    return subscribtionTimeoutInSeconds;
+  }
+
+  public Long getShutdownTimeoutInSeconds() {
+    return shutdownTimeoutInSeconds;
   }
 }

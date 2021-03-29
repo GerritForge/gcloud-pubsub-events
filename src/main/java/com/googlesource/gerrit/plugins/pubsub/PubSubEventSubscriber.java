@@ -67,9 +67,9 @@ public class PubSubEventSubscriber {
 
     try {
       subscriber = subscriberProvider.get(topic, receiver);
-      // Start the subscriber.
-      // TODO: Read timeout from config
-      subscriber.startAsync().awaitRunning(60000, TimeUnit.SECONDS);
+      subscriber
+          .startAsync()
+          .awaitRunning(config.getSubscribtionTimeoutInSeconds(), TimeUnit.SECONDS);
     } catch (TimeoutException e) {
       logger.atSevere().withCause(e).log("Timeout during subscribing to the topic %s", topic);
     } catch (IOException e) {
@@ -91,8 +91,9 @@ public class PubSubEventSubscriber {
 
   public void shutdown() {
     try {
-      // TODO: Read timeout from config
-      subscriber.stopAsync().awaitTerminated(60000, TimeUnit.SECONDS);
+      subscriber
+          .stopAsync()
+          .awaitTerminated(config.getShutdownTimeoutInSeconds(), TimeUnit.SECONDS);
     } catch (TimeoutException e) {
       logger.atSevere().withCause(e).log("Timeout during subscriber shutdown");
     }
