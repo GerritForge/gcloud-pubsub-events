@@ -34,6 +34,24 @@
       "parentUuid": "ca6fbfe5_fbcd1897",
       "revId": "3fbeccb3d2576c1a7008c79bac1138e1da2e3e30",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca8eb311_8ac0a998",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T13:04:33Z",
+      "side": 1,
+      "message": "I was googling for that issue but I couldn\u0027t find anything useful. That\u0027s why it took me so long because I was looking for the issue in my code, but that I realised that it works with the real GCloud. This is the list on open issue for java: https://github.com/googleapis/java-pubsub/issues",
+      "parentUuid": "b2b08b52_e01cc528",
+      "revId": "3fbeccb3d2576c1a7008c79bac1138e1da2e3e30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }

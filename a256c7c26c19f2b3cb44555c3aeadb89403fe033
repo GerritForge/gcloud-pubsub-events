@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "23110e33_1a41653d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T13:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83db4104_842abbb1",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "451d10f5_ef4d24ea",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -64,6 +88,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5839f2bc_db708797",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T13:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d47ae7e_a0acc1f0",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 15
+      },
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1853f9ca_70dd0501",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-03-29T09:30:51Z",
       "side": 1,
       "message": "Separate change?",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 93
+      },
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e251653c_5c3513b6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubConfiguration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T13:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1853f9ca_70dd0501",
       "range": {
         "startLine": 43,
         "startChar": 4,
@@ -110,6 +182,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0991eb69_4a5201bd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubConfiguration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T13:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07853cb0_67e2ec14",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 96
+      },
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1660bfac_0aae22c0",
@@ -127,6 +223,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2054a672_3c108cca",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/SubscriberProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T13:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1660bfac_0aae22c0",
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36f24483_a6c940f9",
@@ -140,6 +254,30 @@
       "writtenOn": "2021-03-29T09:30:51Z",
       "side": 1,
       "message": "nit: could just return the value\n\nreturn SubscriptionAdminSettings.newBuilder().setCredentialsProvider(credentials).build();",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 37
+      },
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7447a57_8f2e80b9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/SubscriberProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T13:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36f24483_a6c940f9",
       "range": {
         "startLine": 65,
         "startChar": 0,
