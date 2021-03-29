@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c803f4d0_9eee0aee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f09a531_10e57d29",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6f3e8698_6b564081",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -64,6 +88,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6c90bb1_9e4f0836",
+        "filename": "BUILD",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5861f066_737b2e03",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 45
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d85456a2_a486e2f9",
@@ -87,6 +135,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc95d722_7149c884",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d85456a2_a486e2f9",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 4
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "459c8070_c5a500f5",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-03-26T15:28:37Z",
       "side": 1,
       "message": "nit: spaces",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 4
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d67ee0ef_f3aea018",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "459c8070_c5a500f5",
       "range": {
         "startLine": 153,
         "startChar": 0,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0579c33a_678fdf5f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/Module.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "That\u0027s a good point! I even started implementing it in that way, than I realised that with this approach we do not have clear separation between production and test code. Having all those branches in multiple places(it\u0027s more than just the credentials provider) reduced the code readability.\nWith current approach we have a clear production code without any logic for the local environment,  plus it\u0027s not that we are re-implementing everything in the local, we extend production classes and override logic.\n\nPlus I believe one of the reasons why we use guice is to be able to bind different implementation based on some conditions.\n\nI know that having those extra classes just for local env is far from prfect 😞\n\nWDYT?",
+      "parentUuid": "4deca3e8_2c0570c0",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 5
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b51cb90_a989084f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubConfiguration.java",
         "patchSetId": 5
@@ -146,6 +266,24 @@
       "writtenOn": "2021-03-26T15:28:37Z",
       "side": 1,
       "message": "These and other parameters should be documented",
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "504c5c0a_5b14788a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubConfiguration.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "Yes, there is a ticket for followup change with the documentation",
+      "parentUuid": "3b51cb90_a989084f",
       "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -167,6 +305,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a17431de_0de8f080",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubPublisher.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5098b4_5c05b216",
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "494734f3_695b4804",
@@ -184,6 +340,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f41bd361_826adc75",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubPublisher.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "message will be printed as a part of the withCause",
+      "parentUuid": "494734f3_695b4804",
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cbc7be84_b8dffcdf",
@@ -197,6 +371,30 @@
       "writtenOn": "2021-03-26T15:28:37Z",
       "side": 1,
       "message": "Should we give this value a name?\nShould this be configurable?",
+      "range": {
+        "startLine": 73,
+        "startChar": 20,
+        "endLine": 73,
+        "endChar": 22
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d78c74c1_5f51551a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/SubscriberProvider.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbc7be84_b8dffcdf",
       "range": {
         "startLine": 73,
         "startChar": 20,
@@ -232,6 +430,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a7baa68_12ade3c2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/SubscriberProvider.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "I wanted to describe my intention. First thing you will ask when looking at this code is why we just not list the subscribtions to check if it already exists. So comment should clarify why we are doing it in such a strange way",
+      "parentUuid": "eca4c26c_d7a11b16",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 33
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae662c3d_c4c7d66f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/SubscriberProvider.java",
         "patchSetId": 5
@@ -249,6 +471,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da153690_1e33e924",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/SubscriberProvider.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "Why? It\u0027s normal behaviour that we do not have subscription so we will create it later",
+      "parentUuid": "ae662c3d_c4c7d66f",
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9792c150_1447786c",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/local/LocalHostAndPort.java",
         "patchSetId": 5
@@ -260,6 +500,30 @@
       "writtenOn": "2021-03-26T15:28:37Z",
       "side": 1,
       "message": "Should we name it accordingly to the environment variable name?",
+      "range": {
+        "startLine": 22,
+        "startChar": 29,
+        "endLine": 22,
+        "endChar": 51
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "335d1ba9_6fbb4fef",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/local/LocalHostAndPort.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9792c150_1447786c",
       "range": {
         "startLine": 22,
         "startChar": 29,
@@ -293,6 +557,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca58e68e_88a999aa",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "045818cb_99d830ab",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 3
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "863caab8_ca9b155d",
@@ -306,6 +594,30 @@
       "writtenOn": "2021-03-26T15:28:37Z",
       "side": 1,
       "message": "Is there any way to use the getOrCreateSubscription from the SubscribeProvider rather than reimplementing it here?",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 19
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e61dfc8_17856b73",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-29T06:56:00Z",
+      "side": 1,
+      "message": "This would require code refactoring which is already done in a follow up change, could I address this comment there?",
+      "parentUuid": "863caab8_ca9b155d",
       "range": {
         "startLine": 196,
         "startChar": 0,
