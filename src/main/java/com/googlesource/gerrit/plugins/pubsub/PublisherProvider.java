@@ -34,7 +34,7 @@ public class PublisherProvider {
   }
 
   public Publisher get(String topic) throws IOException {
-    return Publisher.newBuilder(TopicName.of(config.getProject(), topic))
+    return Publisher.newBuilder(TopicName.of(config.getGCloudProject(), topic))
         .setCredentialsProvider(credentials)
         .build();
   }

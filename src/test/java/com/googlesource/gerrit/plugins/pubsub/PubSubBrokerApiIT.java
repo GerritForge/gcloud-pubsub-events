@@ -101,7 +101,7 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
   }
 
   @Test
-  @GerritConfig(name = "plugin.gcloud-pubsub-events.project", value = PROJECT_ID)
+  @GerritConfig(name = "plugin.gcloud-pubsub-events.gcloudProject", value = PROJECT_ID)
   public void shouldSendEvent() throws IOException {
     createSubscription(SUBSCRIPTION_ID, TOPIC_ID, channelProvider, credentialsProvider);
     UUID id = UUID.randomUUID();
@@ -120,7 +120,7 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
   }
 
   @Test
-  @GerritConfig(name = "plugin.gcloud-pubsub-events.project", value = PROJECT_ID)
+  @GerritConfig(name = "plugin.gcloud-pubsub-events.gcloudProject", value = PROJECT_ID)
   @GerritConfig(name = "plugin.gcloud-pubsub-events.subscriptionId", value = SUBSCRIPTION_ID)
   public void shouldConsumeEvent() throws InterruptedException {
     UUID id = UUID.randomUUID();

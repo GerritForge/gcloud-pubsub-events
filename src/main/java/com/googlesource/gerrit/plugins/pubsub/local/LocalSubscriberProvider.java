@@ -52,7 +52,7 @@ public class LocalSubscriberProvider extends SubscriberProvider {
   @Override
   public Subscriber get(String topic, MessageReceiver receiver) throws IOException {
     TransportChannelProvider channelProvider = createChannelProvider();
-    createTopic(channelProvider, pubSubProperties.getProject(), topic);
+    createTopic(channelProvider, pubSubProperties.getGCloudProject(), topic);
     return Subscriber.newBuilder(getOrCreateSubscription(topic).getName(), receiver)
         .setChannelProvider(channelProvider)
         .setExecutorProvider(FixedExecutorProvider.create(executor))

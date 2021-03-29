@@ -51,8 +51,8 @@ public class LocalPublisherProvider extends PublisherProvider {
             .build();
     TransportChannelProvider channelProvider =
         FixedTransportChannelProvider.create(GrpcTransportChannel.create(channel));
-    createTopic(channel, config.getProject(), topic);
-    return Publisher.newBuilder(TopicName.of(config.getProject(), topic))
+    createTopic(channel, config.getGCloudProject(), topic);
+    return Publisher.newBuilder(TopicName.of(config.getGCloudProject(), topic))
         .setChannelProvider(channelProvider)
         .setCredentialsProvider(credentials)
         .build();

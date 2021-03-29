@@ -70,7 +70,7 @@ public class SubscriberProvider {
       String subscriptionName =
           String.format("%s-%s", pubSubProperties.getSubscriptionId(), topicId);
       ProjectSubscriptionName projectSubscriptionName =
-          ProjectSubscriptionName.of(pubSubProperties.getProject(), subscriptionName);
+          ProjectSubscriptionName.of(pubSubProperties.getGCloudProject(), subscriptionName);
 
       return getSubscription(subscriptionAdminClient, projectSubscriptionName)
           .orElseGet(
@@ -84,7 +84,7 @@ public class SubscriberProvider {
       ProjectSubscriptionName projectSubscriptionName, String topicId) {
     return Subscription.newBuilder()
         .setName(projectSubscriptionName.toString())
-        .setTopic(TopicName.of(pubSubProperties.getProject(), topicId).toString())
+        .setTopic(TopicName.of(pubSubProperties.getGCloudProject(), topicId).toString())
         .setAckDeadlineSeconds(pubSubProperties.getAckDeadlineSeconds())
         .setRetainAckedMessages(true)
         .build();
