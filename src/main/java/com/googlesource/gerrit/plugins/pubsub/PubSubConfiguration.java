@@ -27,7 +27,7 @@ public class PubSubConfiguration {
   private static final String DEFAULT_SUBSCTIPRION_TIMEOUT = "10";
   private static final String DEFAULT_SHUTDOWN_TIMEOUT = "10";
 
-  private final String project;
+  private final String gcloudProject;
   private final String subscriptionId;
   private final Integer numberOfSubscribers;
   private final Boolean sendAsync;
@@ -40,7 +40,7 @@ public class PubSubConfiguration {
   public PubSubConfiguration(PluginConfigFactory configFactory, @PluginName String pluginName) {
     PluginConfig fromGerritConfig = configFactory.getFromGerritConfig(pluginName);
     this.sendAsync = fromGerritConfig.getBoolean("sendAsync", true);
-    this.project = fromGerritConfig.getString("project");
+    this.gcloudProject = fromGerritConfig.getString("gcloudProject");
     this.subscriptionId = fromGerritConfig.getString("subscriptionId");
     this.privateKeyLocation = fromGerritConfig.getString("privateKeyLocation");
     this.numberOfSubscribers =
@@ -60,8 +60,8 @@ public class PubSubConfiguration {
     return sendAsync;
   }
 
-  public String getProject() {
-    return project;
+  public String getGCloudProject() {
+    return gcloudProject;
   }
 
   public Integer getNumberOfSubscribers() {
