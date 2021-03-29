@@ -253,6 +253,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5683e07_5f33c644",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/Module.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:53:34Z",
+      "side": 1,
+      "message": "Yeah I understand your point. I thought you did it this way for clarity.\n\nAs you mentioned, it is weird that setting this up locally requires you to hook into two completely code paths.\n\nThe AWS SDK for example, has this concept of \"chain\" in which different providers take priority and, if that provider doesn\u0027t apply, it falls back to the next element in the chain.\n\nI guess my point is that you implemented that approach in the module, rather than in a ChainProvider class.\n\nI agree, that\u0027s not really business logic though, just wiring, so it looks good.",
+      "parentUuid": "0579c33a_678fdf5f",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 5
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b51cb90_a989084f",
@@ -452,6 +476,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5787b859_8322b539",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/SubscriberProvider.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:53:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0a7baa68_12ade3c2",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 33
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae662c3d_c4c7d66f",
@@ -483,6 +531,24 @@
       "side": 1,
       "message": "Why? It\u0027s normal behaviour that we do not have subscription so we will create it later",
       "parentUuid": "ae662c3d_c4c7d66f",
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cc4c2eb_9a562196",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/SubscriberProvider.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:53:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "da153690_1e33e924",
       "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -618,6 +684,30 @@
       "side": 1,
       "message": "This would require code refactoring which is already done in a follow up change, could I address this comment there?",
       "parentUuid": "863caab8_ca9b155d",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 19
+      },
+      "revId": "c243a1768ffa8b43fe1eafbfed033f566e7ce2c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cec0397_ecc30642",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:53:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6e61dfc8_17856b73",
       "range": {
         "startLine": 196,
         "startChar": 0,

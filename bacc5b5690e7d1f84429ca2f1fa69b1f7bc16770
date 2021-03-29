@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "698fe049_3b0ce711",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/local/LocalHostAndPort.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:53:34Z",
+      "side": 1,
+      "message": "Is this class responsibility to check whether the environment points to a gcloud pubsub running locally?\nLocalHostAndPort doesn\u0027t make clear what the intent is for, shall we rename it to something like:\n\nEnvironmentChecker\n\nI think it would read better when you call EnvironmentChecker.isLocalEnvironment()",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "bacc5b5690e7d1f84429ca2f1fa69b1f7bc16770",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
