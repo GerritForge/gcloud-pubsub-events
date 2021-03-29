@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83db4104_842abbb1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:30:51Z",
+      "side": 1,
+      "message": "I would split this in a base change",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "451d10f5_ef4d24ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:30:51Z",
+      "side": 1,
+      "message": "Anything at all we can unit test?",
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d47ae7e_a0acc1f0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:30:51Z",
+      "side": 1,
+      "message": "nit: could use method reference\n\n        .forEach(\n                PubSubEventSubscriber::replayMessages);",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 15
+      },
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1853f9ca_70dd0501",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubConfiguration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:30:51Z",
+      "side": 1,
+      "message": "Separate change?",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 93
+      },
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07853cb0_67e2ec14",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubConfiguration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:30:51Z",
+      "side": 1,
+      "message": "If this is not related to replay messages should probably go as a separate change",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 96
+      },
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1660bfac_0aae22c0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/SubscriberProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:30:51Z",
+      "side": 1,
+      "message": "nit: empty space",
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36f24483_a6c940f9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/SubscriberProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:30:51Z",
+      "side": 1,
+      "message": "nit: could just return the value\n\nreturn SubscriptionAdminSettings.newBuilder().setCredentialsProvider(credentials).build();",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 37
+      },
+      "revId": "a256c7c26c19f2b3cb44555c3aeadb89403fe033",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}

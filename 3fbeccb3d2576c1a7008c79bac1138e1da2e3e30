@@ -16,6 +16,24 @@
       "message": "This functionality works with real Gcloud PubSub but it doesn\u0027t with pubsub emulator. With emulator seek method return success but messages are not redelivered",
       "revId": "3fbeccb3d2576c1a7008c79bac1138e1da2e3e30",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2b08b52_e01cc528",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-29T09:30:51Z",
+      "side": 1,
+      "message": "Do you know if this a known problem, anyone else experiencing?\nIf so we could track that issue?",
+      "parentUuid": "ca6fbfe5_fbcd1897",
+      "revId": "3fbeccb3d2576c1a7008c79bac1138e1da2e3e30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
