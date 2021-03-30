@@ -52,6 +52,24 @@
       "parentUuid": "b2b08b52_e01cc528",
       "revId": "3fbeccb3d2576c1a7008c79bac1138e1da2e3e30",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0009d19f_b0544e6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-03-30T07:48:51Z",
+      "side": 1,
+      "message": "Should we open an issue then?\nPerhaps the community can advise whether this is an actual problem or if there is another way to do it?\n\nWDYT?",
+      "parentUuid": "ca8eb311_8ac0a998",
+      "revId": "3fbeccb3d2576c1a7008c79bac1138e1da2e3e30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
