@@ -70,6 +70,24 @@
       "parentUuid": "ca8eb311_8ac0a998",
       "revId": "3fbeccb3d2576c1a7008c79bac1138e1da2e3e30",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87d8dc99_8309bddc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-03-31T06:57:30Z",
+      "side": 1,
+      "message": "Done: https://github.com/googleapis/java-pubsub/issues/584",
+      "parentUuid": "0009d19f_b0544e6c",
+      "revId": "3fbeccb3d2576c1a7008c79bac1138e1da2e3e30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
