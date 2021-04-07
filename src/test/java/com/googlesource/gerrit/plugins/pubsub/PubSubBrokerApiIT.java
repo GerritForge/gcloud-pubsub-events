@@ -36,20 +36,25 @@ import com.google.gerrit.acceptance.WaitUtil;
 import com.google.gerrit.acceptance.config.GerritConfig;
 import com.google.gerrit.server.events.Event;
 import com.google.gerrit.server.events.ProjectCreatedEvent;
+import com.google.gerrit.server.events.RefUpdatedEvent;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.pubsub.v1.ProjectSubscriptionName;
 import com.google.pubsub.v1.PullRequest;
 import com.google.pubsub.v1.PullResponse;
 import com.google.pubsub.v1.PushConfig;
+import com.google.pubsub.v1.ReceivedMessage;
 import com.google.pubsub.v1.TopicName;
 import com.googlesource.gerrit.plugins.pubsub.local.EnvironmentChecker;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 import org.junit.Test;
 import org.testcontainers.containers.PubSubEmulatorContainer;
 import org.testcontainers.utility.DockerImageName;
@@ -121,6 +126,32 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
 
   @Test
   @GerritConfig(name = "plugin.gcloud-pubsub-events.gcloudProject", value = PROJECT_ID)
+  public void shouldProduceStreamEvents() throws Exception {
+    String subscriptionId = "gerrit-subscription-id";
+    String topicId = "gerrit";
+    createSubscription(subscriptionId, topicId, channelProvider, credentialsProvider);
+
+    createChange();
+
+    readMessageAndValidate(
+        (pullResponse) -> {
+          List<ReceivedMessage> messages = pullResponse.getReceivedMessagesList();
+          assertThat(messages).hasSize(4);
+          Map<String, Long> messageTypeCount =
+              messages.stream()
+                  .map(m -> gson.fromJson(m.getMessage().getData().toStringUtf8(), Map.class))
+                  .map(m -> m.get("type").toString())
+                  .collect(Collectors.groupingBy(t -> t, Collectors.counting()));
+
+          assertThat(messageTypeCount.get(RefUpdatedEvent.TYPE)).isEqualTo(3);
+          assertThat(messageTypeCount.get("patchset-created")).isEqualTo(1);
+        },
+        PROJECT_ID,
+        subscriptionId);
+  }
+
+  @Test
+  @GerritConfig(name = "plugin.gcloud-pubsub-events.gcloudProject", value = PROJECT_ID)
   @GerritConfig(name = "plugin.gcloud-pubsub-events.subscriptionId", value = SUBSCRIPTION_ID)
   public void shouldConsumeEvent() throws InterruptedException {
     UUID id = UUID.randomUUID();
@@ -141,6 +172,11 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
   }
 
   private void readMessageAndValidate(Consumer<PullResponse> validate) throws IOException {
+    readMessageAndValidate(validate, PROJECT_ID, SUBSCRIPTION_ID);
+  }
+
+  private void readMessageAndValidate(
+      Consumer<PullResponse> validate, String projectId, String subscriptionId) throws IOException {
     SubscriberStubSettings subscriberStubSettings =
         SubscriberStubSettings.newBuilder()
             .setTransportChannelProvider(channelProvider)
@@ -149,8 +185,8 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
     try (SubscriberStub subscriber = GrpcSubscriberStub.create(subscriberStubSettings)) {
       PullRequest pullRequest =
           PullRequest.newBuilder()
-              .setMaxMessages(1)
-              .setSubscription(ProjectSubscriptionName.format(PROJECT_ID, SUBSCRIPTION_ID))
+              .setMaxMessages(Integer.MAX_VALUE) // make sure that we read all messages
+              .setSubscription(ProjectSubscriptionName.format(projectId, subscriptionId))
               .build();
       PullResponse pullResponse = subscriber.pullCallable().call(pullRequest);
 
