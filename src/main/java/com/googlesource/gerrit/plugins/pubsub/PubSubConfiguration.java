@@ -26,6 +26,7 @@ public class PubSubConfiguration {
   private static final String DEFAULT_ACK_DEADLINE_SECONDS = "10";
   private static final String DEFAULT_SUBSCTIPRION_TIMEOUT = "10";
   private static final String DEFAULT_SHUTDOWN_TIMEOUT = "10";
+  private static final String DEFAULT_STREAM_EVENTS_TOPIC = "gerrit";
 
   private final String gcloudProject;
   private final String subscriptionId;
@@ -35,6 +36,7 @@ public class PubSubConfiguration {
   private final Integer ackDeadlineSeconds;
   private final Long subscribtionTimeoutInSeconds;
   private final Long shutdownTimeoutInSeconds;
+  private final String streamEventsTopic;
 
   @Inject
   public PubSubConfiguration(PluginConfigFactory configFactory, @PluginName String pluginName) {
@@ -43,6 +45,7 @@ public class PubSubConfiguration {
     this.gcloudProject = fromGerritConfig.getString("gcloudProject");
     this.subscriptionId = fromGerritConfig.getString("subscriptionId");
     this.privateKeyLocation = fromGerritConfig.getString("privateKeyLocation");
+    this.streamEventsTopic = fromGerritConfig.getString("topic", DEFAULT_STREAM_EVENTS_TOPIC);
     this.numberOfSubscribers =
         Integer.parseInt(
             fromGerritConfig.getString("numberOfSubscribers", DEFAULT_NUMBER_OF_SUBSCRIBERS));
@@ -86,5 +89,9 @@ public class PubSubConfiguration {
 
   public Long getShutdownTimeoutInSeconds() {
     return shutdownTimeoutInSeconds;
+  }
+
+  public String getStreamEventsTopic() {
+    return streamEventsTopic;
   }
 }
