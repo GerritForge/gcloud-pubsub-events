@@ -18,6 +18,7 @@ import com.gerritforge.gerrit.eventbroker.EventMessage;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.pubsub.v1.Publisher;
 import com.google.common.flogger.FluentLogger;
+import com.google.gerrit.server.events.Event;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
@@ -51,9 +52,16 @@ public class PubSubPublisher {
     this.pubSubProperties = pubSubProperties;
   }
 
+  public boolean publish(Event event) {
+    return publish(gson.toJson(event));
+  }
+
   public boolean publish(EventMessage event) {
-    String eventStr = gson.toJson(event);
-    ByteString data = ByteString.copyFromUtf8(eventStr);
+    return publish(gson.toJson(event));
+  }
+
+  private boolean publish(String eventPayload) {
+    ByteString data = ByteString.copyFromUtf8(eventPayload);
     PubsubMessage pubsubMessage = PubsubMessage.newBuilder().setData(data).build();
     if (pubSubProperties.isSendAsync()) {
       return publishAsync(pubsubMessage) != null;
