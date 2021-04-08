@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2f5a9d0f_0ce2c876",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2021-04-08T21:00:29Z",
+      "side": 1,
+      "message": "Might be worth adding a link to the gerrit documentation on how to build plugins [1]. Possibly you can even remove the explanation here and just refer to the Gerrit documentation.\n\n[1]: https://gerrit-review.googlesource.com/Documentation/dev-build-plugins.html",
+      "range": {
+        "startLine": 3,
+        "startChar": 76,
+        "endLine": 8,
+        "endChar": 42
+      },
+      "revId": "bc0c8982ac23050b60d0d70905b882ddd408b747",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6d720f4_5b0a7795",
         "filename": "src/main/resources/Documentation/build.md",
         "patchSetId": 4
@@ -89,6 +112,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee341113_980decda",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2021-04-08T21:00:29Z",
+      "side": 1,
+      "message": "nit: Gerrit",
+      "range": {
+        "startLine": 26,
+        "startChar": 38,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "bc0c8982ac23050b60d0d70905b882ddd408b747",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "019a37ee_d8e3067d",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 4
@@ -112,6 +158,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "654950fc_d9cd4e66",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2021-04-08T21:00:29Z",
+      "side": 1,
+      "message": "Is there any default and/or recommendation for this path? like /var/gerrit/...",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 47
+      },
+      "revId": "bc0c8982ac23050b60d0d70905b882ddd408b747",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe20adc4_5a8d1175",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 4
@@ -123,6 +192,30 @@
       "writtenOn": "2021-04-08T15:39:44Z",
       "side": 1,
       "message": "I am thinking about publishing to the broker asynchronously.\nHow can we ensure they are streamed successfully? Does the API retry?\nHow can we ensure they are streamed in order?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 17
+      },
+      "revId": "bc0c8982ac23050b60d0d70905b882ddd408b747",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce327948_eab4322e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2021-04-08T21:00:29Z",
+      "side": 1,
+      "message": "What are the use cases for it to be sync or async? I.e.: as a plugin user, why should I pick one or the other? Do we even need to expose it to the user?",
+      "parentUuid": "fe20adc4_5a8d1175",
       "range": {
         "startLine": 38,
         "startChar": 0,
