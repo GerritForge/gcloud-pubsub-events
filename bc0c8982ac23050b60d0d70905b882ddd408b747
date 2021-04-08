@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3976eec7_350ec0a8",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-04-08T15:50:02Z",
+      "side": 1,
+      "message": "The \"topic\" configuration is missing",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 13
+      },
+      "revId": "bc0c8982ac23050b60d0d70905b882ddd408b747",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "17d7d9ff_9611cdd2",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 4
