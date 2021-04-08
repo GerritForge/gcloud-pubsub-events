@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6d720f4_5b0a7795",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-04-08T18:12:02Z",
+      "side": 1,
+      "message": "nit: what about running tests?\nCan you also mention the pre-reqs? (e.g. Docker)",
+      "revId": "bc0c8982ac23050b60d0d70905b882ddd408b747",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3976eec7_350ec0a8",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 4
