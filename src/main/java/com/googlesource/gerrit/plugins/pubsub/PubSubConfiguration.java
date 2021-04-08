@@ -45,7 +45,8 @@ public class PubSubConfiguration {
     this.gcloudProject = fromGerritConfig.getString("gcloudProject");
     this.subscriptionId = fromGerritConfig.getString("subscriptionId");
     this.privateKeyLocation = fromGerritConfig.getString("privateKeyLocation");
-    this.streamEventsTopic = fromGerritConfig.getString("topic", DEFAULT_STREAM_EVENTS_TOPIC);
+    this.streamEventsTopic =
+        fromGerritConfig.getString("streamEventsTopic", DEFAULT_STREAM_EVENTS_TOPIC);
     this.numberOfSubscribers =
         Integer.parseInt(
             fromGerritConfig.getString("numberOfSubscribers", DEFAULT_NUMBER_OF_SUBSCRIBERS));
@@ -54,9 +55,11 @@ public class PubSubConfiguration {
             fromGerritConfig.getString("ackDeadlineSeconds", DEFAULT_ACK_DEADLINE_SECONDS));
     this.subscribtionTimeoutInSeconds =
         Long.parseLong(
-            fromGerritConfig.getString("subscribtionTimeout", DEFAULT_SUBSCTIPRION_TIMEOUT));
+            fromGerritConfig.getString(
+                "subscribtionTimeoutInSeconds", DEFAULT_SUBSCTIPRION_TIMEOUT));
     this.shutdownTimeoutInSeconds =
-        Long.parseLong(fromGerritConfig.getString("shutdownTimeout", DEFAULT_SHUTDOWN_TIMEOUT));
+        Long.parseLong(
+            fromGerritConfig.getString("shutdownTimeoutInSeconds", DEFAULT_SHUTDOWN_TIMEOUT));
   }
 
   public Boolean isSendAsync() {
