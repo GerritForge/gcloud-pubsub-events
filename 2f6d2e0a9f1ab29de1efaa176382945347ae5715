@@ -39,6 +39,23 @@
       "message": "What about:\n- tests\n- documentation update\n\nP.S. Would it make sense to have this functionality in the events-broker instead? So that it can be reused across all Broker API implementations?",
       "revId": "2f6d2e0a9f1ab29de1efaa176382945347ae5715",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83d35f7a_b4adbbd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2021-04-08T21:16:46Z",
+      "side": 1,
+      "message": "LGTM providing a follow up change with some tests to cover this functionality.",
+      "revId": "2f6d2e0a9f1ab29de1efaa176382945347ae5715",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
