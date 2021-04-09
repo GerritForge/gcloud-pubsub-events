@@ -56,6 +56,24 @@
       "message": "LGTM providing a follow up change with some tests to cover this functionality.",
       "revId": "2f6d2e0a9f1ab29de1efaa176382945347ae5715",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ba76faf_d2b90e38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-04-09T15:31:25Z",
+      "side": 1,
+      "message": "I\u0027ve added the test. Documentation is done in a follow up change.\n\n\u003eWould it make sense to have this functionality in the events-broker instead? So that it can be reused across all Broker API implementations?\n\nYes it\u0027s a good idea I will create ticket for it.",
+      "parentUuid": "711114e0_76b88969",
+      "revId": "2f6d2e0a9f1ab29de1efaa176382945347ae5715",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
