@@ -486,6 +486,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38e9e5b3_342ae5a2",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-04-09T09:14:57Z",
+      "side": 1,
+      "message": "\u003e \u003e I am thinking about publishing to the broker asynchronously.\n\u003e How can we ensure they are streamed successfully? Does the API retry?\n\u003e How can we ensure they are streamed in order?\n\u003e \n\u003e Yes this is a valid concern which we had when we introduced that functionality in Kafka events as well. Note about the limitation can be found in the commit message for the kafka-events:\n\u003e https://gerrit-review.googlesource.com/c/plugins/kafka-events/+/263795\n\u003e \n\u003e We can create ticket and address those concerns in all plugins as a follow up change\n\u003e \n\u003e \u003e What are the use cases for it to be sync or async? I.e.: as a plugin user, why should I pick one or the other? Do we even need to expose it to the user?\n\u003e \n\u003e I will mark this parameter as optional. If I remember correctly almost always async is a better choice( reduce impact on the UI performance). But for some setup consistency is more important so sending messages in sync makes sense. Here is the original ticket: https://bugs.chromium.org/p/gerrit/issues/detail?id\u003d12604\u0026q\u003d12604\u0026can\u003d2\n\nAre we sure the default of true is a good choice if we don\u0027t know the implications of messages delivered out of order?\nThere\u0027s is another ticket to work on regarding: \"Issue 14206: GCloud PubSub - add message ordering\"\n\nDo we know if we can ensure ordered delivered in an async context?\n\n\u003e \n\u003e As before if we want to remove this property it should be done as a follow up change\n\nYes I agree",
+      "parentUuid": "5b95c9ab_28bab13f",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 17
+      },
+      "revId": "bc0c8982ac23050b60d0d70905b882ddd408b747",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e248d51e_284869ef",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 4
