@@ -95,6 +95,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a081bc7_de9109a9",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2021-04-09T07:54:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "98b5e40d_81bf59f2",
+      "range": {
+        "startLine": 3,
+        "startChar": 76,
+        "endLine": 8,
+        "endChar": 42
+      },
+      "revId": "bc0c8982ac23050b60d0d70905b882ddd408b747",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6d720f4_5b0a7795",
@@ -426,6 +450,30 @@
       "side": 1,
       "message": "\u003e I am thinking about publishing to the broker asynchronously.\nHow can we ensure they are streamed successfully? Does the API retry?\nHow can we ensure they are streamed in order?\n\nYes this is a valid concern which we had when we introduced that functionality in Kafka events as well. Note about the limitation can be found in the commit message for the kafka-events:\nhttps://gerrit-review.googlesource.com/c/plugins/kafka-events/+/263795\n\nWe can create ticket and address those concerns in all plugins as a follow up change\n\n\u003e What are the use cases for it to be sync or async? I.e.: as a plugin user, why should I pick one or the other? Do we even need to expose it to the user?\n\nI will mark this parameter as optional. If I remember correctly almost always async is a better choice( reduce impact on the UI performance). But for some setup consistency is more important so sending messages in sync makes sense. Here is the original ticket: https://bugs.chromium.org/p/gerrit/issues/detail?id\u003d12604\u0026q\u003d12604\u0026can\u003d2\n\nAs before if we want to remove this property it should be done as a follow up change",
       "parentUuid": "ce327948_eab4322e",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 17
+      },
+      "revId": "bc0c8982ac23050b60d0d70905b882ddd408b747",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e49b940_eff6e3e6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2021-04-09T07:54:53Z",
+      "side": 1,
+      "message": "I am fine with keeping it as apparently it is useful. I would just give some guidance/tradeoffs to the user, i.e.: if I were to install it toady I wouldn\u0027t know what to set it to.  Probably the case is consistency Vs availability?",
+      "parentUuid": "5b95c9ab_28bab13f",
       "range": {
         "startLine": 38,
         "startChar": 0,
