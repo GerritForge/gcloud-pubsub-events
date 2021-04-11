@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17e1f7fa_94592e9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2021-04-11T08:37:26Z",
+      "side": 1,
+      "message": "Are the tests are broken on master? With and without this change the tests are failing when I try to build against master. In fact, I see the same failure the CI, if I try to add build job against stable-3.4 branch: [1].\n\nThe error is:\n\n  Caused by: java.lang.NoClassDefFoundError: com/google/gerrit/server/change/ChangeKeyAdapter\n\tat com.gerritforge.gerrit.eventbroker.EventGsonProvider.get(EventGsonProvider.java:80)\n\tat com.gerritforge.gerrit.eventbroker.EventGsonProvider.get(EventGsonProvider.java:39)\n\n[1] https://gerrit-ci.gerritforge.com/view/Plugins-stable-3.4/job/plugin-gcloud-pubsub-events-gh-bazel-master-stable-3.4/1/console",
+      "revId": "da9a34dd88802649b51d2036ff9881d0ddfb2be6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e5a7d25_d4965d58",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubEventListener.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2021-04-11T08:37:26Z",
+      "side": 1,
+      "message": "private final",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 9
+      },
+      "revId": "da9a34dd88802649b51d2036ff9881d0ddfb2be6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1886a731_b9747c3f",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2021-04-11T08:37:26Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 144,
+        "startChar": 57,
+        "endLine": 144,
+        "endChar": 76
+      },
+      "revId": "da9a34dd88802649b51d2036ff9881d0ddfb2be6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d820548_f0859367",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2021-04-11T08:37:26Z",
+      "side": 1,
+      "message": "Nit: we usually import Collectors.groupingBy statically.",
+      "range": {
+        "startLine": 144,
+        "startChar": 27,
+        "endLine": 144,
+        "endChar": 48
+      },
+      "revId": "da9a34dd88802649b51d2036ff9881d0ddfb2be6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
