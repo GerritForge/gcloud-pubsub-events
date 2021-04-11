@@ -18,7 +18,7 @@ gerrit_plugin(
     resources = glob(["src/main/resources/**/*"]),
     deps = [
         "@api-common//jar",
-        "@events-broker//jar",
+        "@events-broker//jar:neverlink",
         "@gax-grpc//jar",
         "@gax//jar",
         "@google-auth-library-credentials//jar",
