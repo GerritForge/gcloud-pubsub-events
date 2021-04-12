@@ -22,6 +22,30 @@
       },
       "revId": "4eb6dde5346ded234b43ab5d8159c70c2b35bdfb",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a85ef305_c23f8767",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2021-04-12T09:24:10Z",
+      "side": 1,
+      "message": "See my answer in change https://review.gerrithub.io/c/GerritForge/kinesis-events/+/514363.",
+      "parentUuid": "77f7c3f6_caaabfea",
+      "range": {
+        "startLine": 21,
+        "startChar": 28,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "4eb6dde5346ded234b43ab5d8159c70c2b35bdfb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
