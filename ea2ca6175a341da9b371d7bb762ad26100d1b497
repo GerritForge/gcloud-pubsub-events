@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e105b93b_d1fe3321",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2021-04-12T09:45:28Z",
+      "side": 1,
+      "message": "Verified that events-broker classes don\u0027t included in plugin final artifact:\n\n  $ unzip -t bazel-bin/plugins/gcloud-pubsub-events/gcloud-pubsub-events.jar | grep gerritforge\n  \u003cno matches\u003e",
+      "revId": "ea2ca6175a341da9b371d7bb762ad26100d1b497",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
