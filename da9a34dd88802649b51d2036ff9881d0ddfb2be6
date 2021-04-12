@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a9086e4_cdbcb1b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-04-12T06:28:22Z",
+      "side": 1,
+      "message": "I haven\u0027t try against master, this code is developed against stable-3.3 and we had discussion and we decided that we will cut-off the stable-3.3 branch when this code is moved to https://gerrit-review.googlesource.com/ and that adapt it to master",
+      "parentUuid": "17e1f7fa_94592e9e",
+      "revId": "da9a34dd88802649b51d2036ff9881d0ddfb2be6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e5a7d25_d4965d58",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-04-11T08:37:26Z",
       "side": 1,
       "message": "private final",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 9
+      },
+      "revId": "da9a34dd88802649b51d2036ff9881d0ddfb2be6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a131ff_3aa41982",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubEventListener.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-04-12T06:28:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e5a7d25_d4965d58",
       "range": {
         "startLine": 26,
         "startChar": 2,
@@ -77,6 +119,54 @@
       "writtenOn": "2021-04-11T08:37:26Z",
       "side": 1,
       "message": "Nit: we usually import Collectors.groupingBy statically.",
+      "range": {
+        "startLine": 144,
+        "startChar": 27,
+        "endLine": 144,
+        "endChar": 48
+      },
+      "revId": "da9a34dd88802649b51d2036ff9881d0ddfb2be6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dd28420_2c9668dd",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-04-12T06:28:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1886a731_b9747c3f",
+      "range": {
+        "startLine": 144,
+        "startChar": 57,
+        "endLine": 144,
+        "endChar": 76
+      },
+      "revId": "da9a34dd88802649b51d2036ff9881d0ddfb2be6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d85be16a_66a4a23d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-04-12T06:28:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d820548_f0859367",
       "range": {
         "startLine": 144,
         "startChar": 27,
