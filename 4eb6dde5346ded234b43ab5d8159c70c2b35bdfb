@@ -46,6 +46,30 @@
       },
       "revId": "4eb6dde5346ded234b43ab5d8159c70c2b35bdfb",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec78a058_d7ad153a",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-04-12T09:37:02Z",
+      "side": 1,
+      "message": "Ah got that so should it be jar:neverlink?",
+      "parentUuid": "a85ef305_c23f8767",
+      "range": {
+        "startLine": 21,
+        "startChar": 28,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "4eb6dde5346ded234b43ab5d8159c70c2b35bdfb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
