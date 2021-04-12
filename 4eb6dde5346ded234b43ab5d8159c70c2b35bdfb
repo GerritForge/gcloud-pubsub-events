@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77f7c3f6_caaabfea",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-04-12T06:21:15Z",
+      "side": 1,
+      "message": "could you please explain how this is changing the behaviour?",
+      "range": {
+        "startLine": 21,
+        "startChar": 28,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "4eb6dde5346ded234b43ab5d8159c70c2b35bdfb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
