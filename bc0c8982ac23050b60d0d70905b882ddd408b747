@@ -389,6 +389,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62b5de57_939f4cea",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2021-04-13T09:15:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3da10d4f_0ffc5d33",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 47
+      },
+      "revId": "bc0c8982ac23050b60d0d70905b882ddd408b747",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe20adc4_5a8d1175",
@@ -498,6 +522,30 @@
       "side": 1,
       "message": "\u003e \u003e I am thinking about publishing to the broker asynchronously.\n\u003e How can we ensure they are streamed successfully? Does the API retry?\n\u003e How can we ensure they are streamed in order?\n\u003e \n\u003e Yes this is a valid concern which we had when we introduced that functionality in Kafka events as well. Note about the limitation can be found in the commit message for the kafka-events:\n\u003e https://gerrit-review.googlesource.com/c/plugins/kafka-events/+/263795\n\u003e \n\u003e We can create ticket and address those concerns in all plugins as a follow up change\n\u003e \n\u003e \u003e What are the use cases for it to be sync or async? I.e.: as a plugin user, why should I pick one or the other? Do we even need to expose it to the user?\n\u003e \n\u003e I will mark this parameter as optional. If I remember correctly almost always async is a better choice( reduce impact on the UI performance). But for some setup consistency is more important so sending messages in sync makes sense. Here is the original ticket: https://bugs.chromium.org/p/gerrit/issues/detail?id\u003d12604\u0026q\u003d12604\u0026can\u003d2\n\nAre we sure the default of true is a good choice if we don\u0027t know the implications of messages delivered out of order?\nThere\u0027s is another ticket to work on regarding: \"Issue 14206: GCloud PubSub - add message ordering\"\n\nDo we know if we can ensure ordered delivered in an async context?\n\n\u003e \n\u003e As before if we want to remove this property it should be done as a follow up change\n\nYes I agree",
       "parentUuid": "5b95c9ab_28bab13f",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 17
+      },
+      "revId": "bc0c8982ac23050b60d0d70905b882ddd408b747",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "183444d4_da444665",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2021-04-13T09:15:51Z",
+      "side": 1,
+      "message": "\u003e I am fine with keeping it as apparently it is useful. I would just give some  guidance/tradeoffs to the user, i.e.: if I were to install it toady I wouldn\u0027t know what to \u003e set it to.  Probably the case is consistency Vs availability?\n\nI have been digging a bit in the code to get a better understanding of the implication of using sync/async.\n\nAs the code stand, assuming ordering of the messages is not important, the only drawback of using a sync message publisher are the metrics (see also the comment in [1]).\n\nI think that:\n* we could just add a note to the docs warning the user about the metric inconsistency when using an async publisher\n* we can remove this property in a follow up change, if needed\n\n[1]: https://gerrit-review.googlesource.com/c/plugins/kafka-events/+/263795",
+      "parentUuid": "38e9e5b3_342ae5a2",
       "range": {
         "startLine": 38,
         "startChar": 0,
