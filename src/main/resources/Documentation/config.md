@@ -14,7 +14,8 @@ The gcloud-pubsub-events plugin is configured by adding a plugin stanza in the
 ```
 
 `plugin.gcloud-pubsub-events.gcloudProject`
-:   GCloud [project name](https://cloud.google.com/docs/overview#projects)
+:   Mandatory. GCloud [project name](https://cloud.google.com/docs/overview#projects)
+    Failing to provide a value would prevent the plugin from loading.
 
 `plugin.gcloud-pubsub-events.subscriptionId`
 :   Conditional. This value identifies the subscriber and it must be unique within your

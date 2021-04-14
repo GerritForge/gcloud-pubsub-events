@@ -32,6 +32,7 @@ public class PubSubConfigurationTest {
   private static final String PLUGIN_NAME = "gcloud-pubsub-events";
   private static final String subscriptionId = "some-subscription-id";
   private static final String gerritInstanceId = "some-gerrit-id";
+  private static final String gCloudProject = "gcloud-test-project";
 
   private PluginConfig.Update pluginConfig;
   @Mock private PluginConfigFactory pluginConfigFactoryMock;
@@ -40,6 +41,7 @@ public class PubSubConfigurationTest {
   public void setup() {
     pluginConfig = PluginConfig.Update.forTest(PLUGIN_NAME, new Config());
     pluginConfig.setString("subscriptionId", subscriptionId);
+    pluginConfig.setString("gcloudProject", gCloudProject);
   }
 
   @Test
@@ -88,5 +90,30 @@ public class PubSubConfigurationTest {
             () -> new PubSubConfiguration(pluginConfigFactoryMock, PLUGIN_NAME, null));
 
     assertThat(thrown).hasMessageThat().contains("parameter 'subscriptionId' is mandatory");
+  }
+
+  @Test
+  public void shouldReadGCloudProjectWhenConfigured() {
+    when(pluginConfigFactoryMock.getFromGerritConfig(PLUGIN_NAME))
+        .thenReturn(pluginConfig.asPluginConfig());
+
+    PubSubConfiguration configuration =
+        new PubSubConfiguration(pluginConfigFactoryMock, PLUGIN_NAME, gerritInstanceId);
+
+    assertThat(configuration.getGCloudProject()).isEqualTo(gCloudProject);
+  }
+
+  @Test
+  public void shouldThrowExceptionWhenGCloudProjectIsNotDefined() {
+    pluginConfig.setString("gcloudProject", "");
+    when(pluginConfigFactoryMock.getFromGerritConfig(PLUGIN_NAME))
+        .thenReturn(pluginConfig.asPluginConfig());
+
+    IllegalStateException thrown =
+        assertThrows(
+            IllegalStateException.class,
+            () -> new PubSubConfiguration(pluginConfigFactoryMock, PLUGIN_NAME, gerritInstanceId));
+
+    assertThat(thrown).hasMessageThat().contains("parameter 'gcloudProject' is mandatory");
   }
 }

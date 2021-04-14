@@ -48,7 +48,7 @@ public class PubSubConfiguration {
       @Nullable @GerritInstanceId String instanceId) {
     this.fromGerritConfig = configFactory.getFromGerritConfig(pluginName);
     this.sendAsync = fromGerritConfig.getBoolean("sendAsync", true);
-    this.gcloudProject = fromGerritConfig.getString("gcloudProject");
+    this.gcloudProject = getMandatoryString("gcloudProject");
     this.subscriptionId = getMandatoryString("subscriptionId", instanceId);
     this.privateKeyLocation = fromGerritConfig.getString("privateKeyLocation");
     this.streamEventsTopic =
@@ -102,6 +102,10 @@ public class PubSubConfiguration {
 
   public String getStreamEventsTopic() {
     return streamEventsTopic;
+  }
+
+  private String getMandatoryString(String name) throws IllegalStateException {
+    return getMandatoryString(name, null);
   }
 
   private String getMandatoryString(String name, String defaultValue) throws IllegalStateException {
