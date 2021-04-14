@@ -33,6 +33,7 @@ public class PubSubConfigurationTest {
   private static final String subscriptionId = "some-subscription-id";
   private static final String gerritInstanceId = "some-gerrit-id";
   private static final String gCloudProject = "gcloud-test-project";
+  private static final String privateKeyLocation = "/some/path";
 
   private PluginConfig.Update pluginConfig;
   @Mock private PluginConfigFactory pluginConfigFactoryMock;
@@ -42,6 +43,7 @@ public class PubSubConfigurationTest {
     pluginConfig = PluginConfig.Update.forTest(PLUGIN_NAME, new Config());
     pluginConfig.setString("subscriptionId", subscriptionId);
     pluginConfig.setString("gcloudProject", gCloudProject);
+    pluginConfig.setString("privateKeyLocation", privateKeyLocation);
   }
 
   @Test
@@ -115,5 +117,30 @@ public class PubSubConfigurationTest {
             () -> new PubSubConfiguration(pluginConfigFactoryMock, PLUGIN_NAME, gerritInstanceId));
 
     assertThat(thrown).hasMessageThat().contains("parameter 'gcloudProject' is mandatory");
+  }
+
+  @Test
+  public void shouldReadPrivateKeyLocationWhenConfigured() {
+    when(pluginConfigFactoryMock.getFromGerritConfig(PLUGIN_NAME))
+        .thenReturn(pluginConfig.asPluginConfig());
+
+    PubSubConfiguration configuration =
+        new PubSubConfiguration(pluginConfigFactoryMock, PLUGIN_NAME, gerritInstanceId);
+
+    assertThat(configuration.getPrivateKeyLocation()).isEqualTo(privateKeyLocation);
+  }
+
+  @Test
+  public void shouldThrowExceptionWhenPrivateKeyLocationIsNotDefined() {
+    pluginConfig.setString("privateKeyLocation", "");
+    when(pluginConfigFactoryMock.getFromGerritConfig(PLUGIN_NAME))
+        .thenReturn(pluginConfig.asPluginConfig());
+
+    IllegalStateException thrown =
+        assertThrows(
+            IllegalStateException.class,
+            () -> new PubSubConfiguration(pluginConfigFactoryMock, PLUGIN_NAME, gerritInstanceId));
+
+    assertThat(thrown).hasMessageThat().contains("parameter 'privateKeyLocation' is mandatory");
   }
 }
