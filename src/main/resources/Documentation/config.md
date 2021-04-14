@@ -17,9 +17,13 @@ The gcloud-pubsub-events plugin is configured by adding a plugin stanza in the
 :   GCloud [project name](https://cloud.google.com/docs/overview#projects)
 
 `plugin.gcloud-pubsub-events.subscriptionId`
-:   This value identifies the subscriber and it must be unique within your
+:   Conditional. This value identifies the subscriber and it must be unique within your
     Gerrit cluster to allow different Gerrit nodes to consume data from the
-    stream independently.
+    stream independently. It can be omitted when `gerrit.instanceId` is
+    configured, otherwise it is mandatory.
+    Failing to provide a value would prevent the plugin from loading.
+    Default: `gerrit.instanceId` value (when defined)
+    See also: [gerrit.instanceId](https://gerrit-review.googlesource.com/Documentation/config-gerrit.html#gerrit.instanceId)
 
 `plugin.gcloud-pubsub-events.privateKeyLocation`
 :   Path to the JSON file that contains service account key. The file
