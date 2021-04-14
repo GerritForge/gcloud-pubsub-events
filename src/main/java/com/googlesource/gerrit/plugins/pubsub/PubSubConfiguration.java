@@ -50,7 +50,7 @@ public class PubSubConfiguration {
     this.sendAsync = fromGerritConfig.getBoolean("sendAsync", true);
     this.gcloudProject = getMandatoryString("gcloudProject");
     this.subscriptionId = getMandatoryString("subscriptionId", instanceId);
-    this.privateKeyLocation = fromGerritConfig.getString("privateKeyLocation");
+    this.privateKeyLocation = getMandatoryString("privateKeyLocation");
     this.streamEventsTopic =
         fromGerritConfig.getString("streamEventsTopic", DEFAULT_STREAM_EVENTS_TOPIC);
     this.numberOfSubscribers =

@@ -27,9 +27,10 @@ The gcloud-pubsub-events plugin is configured by adding a plugin stanza in the
     See also: [gerrit.instanceId](https://gerrit-review.googlesource.com/Documentation/config-gerrit.html#gerrit.instanceId)
 
 `plugin.gcloud-pubsub-events.privateKeyLocation`
-:   Path to the JSON file that contains service account key. The file
+:   Mandatory. Path to the JSON file that contains service account key. The file
     should be readable only by the daemon process because it contains information
     that wouldn’t normally be exposed to everyone.
+    Failing to provide a value would prevent the plugin from loading.
 
 `plugin.gcloud-pubsub-events.numberOfSubscribers`
 :   Optional. The number of expected gcloud-pubsub-events subscribers. This will be used
