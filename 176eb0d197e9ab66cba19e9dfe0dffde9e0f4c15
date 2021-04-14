@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3860ef32_d472c58f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-04-14T15:07:48Z",
+      "side": 1,
+      "message": "privateKeyLocation is documented as mandatory, but it looks like local deployment does not use it, hence it was never set up in the local multi-site environment.\n\nThis change would break the current multi-site setup, unless we add a privateKeyLocation\u003d\"/foo/bar\"\n\n@Marcin, thoughts?",
+      "revId": "176eb0d197e9ab66cba19e9dfe0dffde9e0f4c15",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
