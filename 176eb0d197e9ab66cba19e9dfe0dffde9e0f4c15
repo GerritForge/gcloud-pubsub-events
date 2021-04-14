@@ -39,6 +39,30 @@
       },
       "revId": "176eb0d197e9ab66cba19e9dfe0dffde9e0f4c15",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c594186a_75753aab",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-04-14T15:12:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abbd9020_839ef2d4",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 69
+      },
+      "revId": "176eb0d197e9ab66cba19e9dfe0dffde9e0f4c15",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
