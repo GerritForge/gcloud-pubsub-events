@@ -14,7 +14,9 @@
 
 package com.googlesource.gerrit.plugins.pubsub;
 
+import com.google.gerrit.common.Nullable;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.server.config.GerritInstanceId;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
@@ -37,13 +39,17 @@ public class PubSubConfiguration {
   private final Long subscribtionTimeoutInSeconds;
   private final Long shutdownTimeoutInSeconds;
   private final String streamEventsTopic;
+  private final PluginConfig fromGerritConfig;
 
   @Inject
-  public PubSubConfiguration(PluginConfigFactory configFactory, @PluginName String pluginName) {
-    PluginConfig fromGerritConfig = configFactory.getFromGerritConfig(pluginName);
+  public PubSubConfiguration(
+      PluginConfigFactory configFactory,
+      @PluginName String pluginName,
+      @Nullable @GerritInstanceId String instanceId) {
+    this.fromGerritConfig = configFactory.getFromGerritConfig(pluginName);
     this.sendAsync = fromGerritConfig.getBoolean("sendAsync", true);
     this.gcloudProject = fromGerritConfig.getString("gcloudProject");
-    this.subscriptionId = fromGerritConfig.getString("subscriptionId");
+    this.subscriptionId = getMandatoryString("subscriptionId", instanceId);
     this.privateKeyLocation = fromGerritConfig.getString("privateKeyLocation");
     this.streamEventsTopic =
         fromGerritConfig.getString("streamEventsTopic", DEFAULT_STREAM_EVENTS_TOPIC);
@@ -96,5 +102,14 @@ public class PubSubConfiguration {
 
   public String getStreamEventsTopic() {
     return streamEventsTopic;
+  }
+
+  private String getMandatoryString(String name, String defaultValue) throws IllegalStateException {
+    String value = fromGerritConfig.getString(name, defaultValue);
+    if (value == null) {
+      throw new IllegalStateException(
+          String.format("Invalid configuration: parameter '%s' is mandatory", name));
+    }
+    return value;
   }
 }
