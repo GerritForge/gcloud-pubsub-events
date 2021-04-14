@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce3dbd95_332ee4ca",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-04-14T15:12:16Z",
+      "side": 1,
+      "message": "Done, removed it also from parent change. Needs approval again.",
+      "parentUuid": "d1515048_476e9994",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 15
+      },
+      "revId": "4f83f1817da4589af26c56d4860b771584209df7",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4932f924_31bf78ef",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-14T15:07:25Z",
       "side": 1,
       "message": "do we need to specify that. We don\u0027t do that for other parameters in Gerrit",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 68
+      },
+      "revId": "4f83f1817da4589af26c56d4860b771584209df7",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e4f18b3_56ab8ae1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-04-14T15:12:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4932f924_31bf78ef",
       "range": {
         "startLine": 18,
         "startChar": 4,
