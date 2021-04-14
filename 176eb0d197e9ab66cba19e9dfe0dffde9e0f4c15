@@ -16,6 +16,29 @@
       "message": "privateKeyLocation is documented as mandatory, but it looks like local deployment does not use it, hence it was never set up in the local multi-site environment.\n\nThis change would break the current multi-site setup, unless we add a privateKeyLocation\u003d\"/foo/bar\"\n\n@Marcin, thoughts?",
       "revId": "176eb0d197e9ab66cba19e9dfe0dffde9e0f4c15",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abbd9020_839ef2d4",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2021-04-14T15:08:23Z",
+      "side": 1,
+      "message": "same as in previous change. We do not have to repeat that for every param",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 69
+      },
+      "revId": "176eb0d197e9ab66cba19e9dfe0dffde9e0f4c15",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
