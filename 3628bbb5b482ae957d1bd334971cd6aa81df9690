@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed8ee2fe_92a5f67a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/pubsub/PubSubConfiguration.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2021-04-15T14:01:33Z",
+      "side": 1,
+      "message": "Should configuration option be documented, like in kafka-events plugin: [1]?\n\n[1] https://gerrit.googlesource.com/plugins/kafka-events/+/refs/heads/master/src/main/resources/Documentation/config.md#additional-properties",
+      "range": {
+        "startLine": 48,
+        "startChar": 56,
+        "endLine": 48,
+        "endChar": 63
+      },
+      "revId": "3628bbb5b482ae957d1bd334971cd6aa81df9690",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce0c1684_ff4ea871",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2021-04-15T14:01:33Z",
+      "side": 1,
+      "message": "Optional: Function.identity() could be used.",
+      "range": {
+        "startLine": 145,
+        "startChar": 38,
+        "endLine": 145,
+        "endChar": 44
+      },
+      "revId": "3628bbb5b482ae957d1bd334971cd6aa81df9690",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71007fb1_3554b9ec",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2021-04-15T14:01:33Z",
+      "side": 1,
+      "message": "Another way to do it is to use toMap function:\n\n  .collect(toMap(identity(), e -\u003e 1L, Math::addExact));\n\nbut groupingBy is fine.",
+      "range": {
+        "startLine": 145,
+        "startChar": 27,
+        "endLine": 145,
+        "endChar": 37
+      },
+      "revId": "3628bbb5b482ae957d1bd334971cd6aa81df9690",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dabb0323_7ddf0238",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/pubsub/PubSubBrokerApiIT.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2021-04-15T14:01:33Z",
+      "side": 1,
+      "message": "PatchSetCreatedEvent.TYPE is not public, while RefUpdatedEvent.TYPE. Should we try to consolidate the visibility for TYPE attribute in core for all events, and make them public?",
+      "range": {
+        "startLine": 148,
+        "startChar": 42,
+        "endLine": 148,
+        "endChar": 60
+      },
+      "revId": "3628bbb5b482ae957d1bd334971cd6aa81df9690",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
