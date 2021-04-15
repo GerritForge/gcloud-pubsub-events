@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0da0028d_6aca75f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1015244
+      },
+      "writtenOn": "2021-04-15T14:51:16Z",
+      "side": 1,
+      "message": "@marcin, thanks for merging this.\nJust a reminder we need to add a dummy entry in multi-site local setup",
+      "parentUuid": "3860ef32_d472c58f",
+      "revId": "176eb0d197e9ab66cba19e9dfe0dffde9e0f4c15",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "abbd9020_839ef2d4",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
