@@ -70,6 +70,7 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
   private static final String SUBSCRIPTION_ID = "test_subscription_id";
 
   private static final Duration TEST_TIMEOUT = Duration.ofSeconds(5);
+  private static final String PRIVATE_KEY_LOCATION = "not used in test";
 
   @Inject private Gson gson;
 
@@ -108,6 +109,10 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
 
   @Test
   @GerritConfig(name = "plugin.gcloud-pubsub-events.gcloudProject", value = PROJECT_ID)
+  @GerritConfig(name = "plugin.gcloud-pubsub-events.subscriptionId", value = SUBSCRIPTION_ID)
+  @GerritConfig(
+      name = "plugin.gcloud-pubsub-events.privateKeyLocation",
+      value = PRIVATE_KEY_LOCATION)
   public void shouldSendEvent() throws IOException {
     createSubscription(SUBSCRIPTION_ID, TOPIC_ID, channelProvider, credentialsProvider);
     UUID id = UUID.randomUUID();
@@ -127,6 +132,10 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
 
   @Test
   @GerritConfig(name = "plugin.gcloud-pubsub-events.gcloudProject", value = PROJECT_ID)
+  @GerritConfig(name = "plugin.gcloud-pubsub-events.subscriptionId", value = SUBSCRIPTION_ID)
+  @GerritConfig(
+      name = "plugin.gcloud-pubsub-events.privateKeyLocation",
+      value = PRIVATE_KEY_LOCATION)
   public void shouldProduceStreamEvents() throws Exception {
     String subscriptionId = "gerrit-subscription-id";
     String topicId = "gerrit";
@@ -154,6 +163,9 @@ public class PubSubBrokerApiIT extends LightweightPluginDaemonTest {
   @Test
   @GerritConfig(name = "plugin.gcloud-pubsub-events.gcloudProject", value = PROJECT_ID)
   @GerritConfig(name = "plugin.gcloud-pubsub-events.subscriptionId", value = SUBSCRIPTION_ID)
+  @GerritConfig(
+      name = "plugin.gcloud-pubsub-events.privateKeyLocation",
+      value = PRIVATE_KEY_LOCATION)
   public void shouldConsumeEvent() throws InterruptedException {
     UUID id = UUID.randomUUID();
     Event event = new ProjectCreatedEvent();
